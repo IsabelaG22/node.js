@@ -31,3 +31,18 @@ exports.eliminarMascota = async (req, res) => {
 
     res.redirect("/api/v1/mascotas")
 }
+
+
+exports.actualizarMascota = async (req, res) => {
+    let buscarId = await Mascotas.find({id : req.body.id});
+    let udpdate = await Mascota.updateOne({
+        nombre:body.nombreMascota,
+        raza:body.razaMascota,
+        edad:body.edadMascota,
+    });
+    console.log(actualizar)
+
+    res.redirect("/api/v1/mascotas")
+
+}
+
