@@ -14,7 +14,7 @@ exports.formNuevaMascota = (req, res) => {
 
 exports.nuevaMascota = async (req, res) => {
     const nuevaMascota = new mascota({
-        id: req.body._id,
+        _id: req.body._id,
         nombre: req.body.nombreMascota,
         raza: req.body.razaMascota,
         edad: req.body.edadMascota,
