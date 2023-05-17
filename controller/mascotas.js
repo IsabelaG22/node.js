@@ -33,16 +33,37 @@ exports.eliminarMascota = async (req, res) => {
 }
 
 
-exports.actualizarMascota = async (req, res) => {
-    let buscarId = await Mascotas.find({id : req.body.id});
-    let udpdate = await Mascota.updateOne({
+/*exports.actualizarMascota = async (req, res) => {
+    const buscarId = await mascota.findByIdAndUpdate({_id : req.body._id});
+    const update = await mascota.updateOne({
         nombre:body.nombreMascota,
         raza:body.razaMascota,
         edad:body.edadMascota,
     });
-    console.log(actualizar)
+    console.log(buscarId)
+    console.log(update)
+
 
     res.redirect("/api/v1/mascotas")
 
 }
+*/
 
+exports.actualizarMascota =async (req, res)=>{
+    const id =req.params._id
+    const body = req.body
+    mascota.updateOne({
+      
+        nombre: req.body.nombreMascota,
+        raza: req.body.razaMascota,
+        edad: req.body.edadMascota,
+        
+    })
+}
+
+/*exports.actualizarMascota =async (req, res)=>{
+    const id =req.params._id
+    const body = req.body
+    mascota.updateOne(id, body)
+}
+*/
